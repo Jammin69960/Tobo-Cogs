@@ -29,7 +29,7 @@ class Sticky(commands.Cog):
             header_enabled=True,
             advstickied={"content": None, "embed": {}},  # This is for [p]stickyexisting
             last=None,
-            cooldown=3
+            cooldown=30
         )
         self.locked_channels = set()
         self._channel_cvs: Dict[discord.TextChannel, asyncio.Condition] = {}
@@ -128,7 +128,7 @@ class Sticky(commands.Cog):
         """Set the cooldown for bumping stickied messages in this channel.
         e.g. 10 seconds, 1 minute, 5 minutes
 
-        Default = 3 seconds
+        Default = 30 seconds
         """
         await self.conf.channel(ctx.channel).cooldown.set(cooldown.total_seconds())
 
